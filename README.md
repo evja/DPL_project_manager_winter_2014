@@ -16,3 +16,5 @@ Students will be given tasks/requirements to perform. Students will submit Pull 
 	- About page
 - Add bootstrap
 - Style your home and about page
+
+It's the start that stops most people
