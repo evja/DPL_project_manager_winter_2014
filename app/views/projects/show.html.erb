@@ -1,0 +1,17 @@
+<h1>Title: <%= @project.title %></h1>
+<p>Description: <%= @project.description %></p>
+<p>Deadline: <%= @project.deadline %></p>
+
+<h1>Tasks</h1>
+<ul>
+  <% @project.tasks.each do |task| %>
+  <li><%= task.title %></li>
+  <%= link_to "Edit", edit_project_task_path(@project, task), class: 'btn btn-default' %>
+  <%= link_to "Destroy", project_task_path(@project, task), method: :delete, class: 'btn btn-default' %>
+  <% end %>
+</ul>
+
+<%= link_to "New Task", new_project_task_path(@project) %>
+<%= link_to "Edit", edit_project_path(@project) %>
+<%= link_to "Destroy", project_path(@project), method: :delete %>
+<%= link_to "Back", projects_path %>

@@ -5,3 +5,8 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+project = Project.create(title: 'Captain America', description: 'the winter soldier')
+project = Project.create(title: 'Hulk', description: 'the invincible soldier')
+project = Project.create(title: 'Iron Man', description: 'Rich with smarts')
+project = Project.create(title: 'Thor', description: 'From another world')

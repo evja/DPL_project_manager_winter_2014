@@ -1,9 +1,8 @@
-<h3 class="sidebar-header">Projects</h3>
+<h3 class="sidebar-header"><%= link_to 'Projects', projects_path %></h3>
 <ul class="sidebar-list">
-	<li>Project #1</li>
-	<li>Project #2</li>
-	<li>Project #3</li>
-	<li>Project #4</li>
+	<% @sidebar_projects.each do |project| %>
+	<li><%= link_to project.title, project_path(project) %></li>
+	<% end %>
 </ul>
 <h3 class="sidebar-header">Team</h3>
 <ul class="sidebar-list">
