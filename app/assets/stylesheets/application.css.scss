@@ -24,6 +24,14 @@ $navbar-height: 100px;
 @import "font-awesome";
 
 
+#miModalLabel {
+  text-align: center;
+}
+
+#hulk {
+  height: 400px;
+  width: 100%;
+}
 
 .main-body {
   padding-top: 105px;
@@ -49,7 +57,7 @@ $navbar-height: 100px;
   }
 }
 
-.navbar-inverse 
+.navbar-inverse
 .navbar-nav > li > a {
   color: #FAEAD0;
   &:hover {

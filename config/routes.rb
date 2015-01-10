@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   get 'tasks/new'
 
   get 'task/edit'
-  
+
 
   root 'static_pages#home'
 
@@ -10,6 +10,8 @@ Rails.application.routes.draw do
 
   get 'easter_egg' => 'static_pages#easter_egg'
   post 'easter_egg' => 'static_pages#easter_egg'
+
+  get 'click_me' => 'static_pages#click_me'
 
   resources :projects do
     resources :tasks, except: [:show, :index]

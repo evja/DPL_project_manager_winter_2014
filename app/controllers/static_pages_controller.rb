@@ -12,4 +12,11 @@ class StaticPagesController < ApplicationController
       format.text { render text: "You called me with this data: #{params.to_s}" }
     end
   end
+
+  def click_me
+    respond_to do |format|
+      format.js
+      format.text
+    end
+  end
 end
