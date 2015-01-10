@@ -1,7 +1,13 @@
-<tr>
-  <td class="col-md-3"><%= project.team %></td>
-  <td class="col-md-2"><%= project.title %></td>
-  <td class="col-md-5"><%= project.description %></td>
-  <td class="col-md-1"><%= project.deadline %></td>
-  <td class="col-md-1 text-center"><%= link_to 'Project', project_path(project), class: "btn btn-default" %></td>
-</tr>
+<div class="row-md-3">
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail index">
+      <%= link_to project_path(project) do %><img src="https://fbcdn-sphotos-d-a.akamaihd.net/hphotos-ak-xpa1/t31.0-8/1617411_10152327850315047_7165561517057286879_o.jpg" alt="holder.js/300x300">
+      <div class="caption"><% end %>
+        <span id="team-name">By Team: <%= project.team %></span>
+        <h3 class="project-title"><%= project.title %></h3>
+
+        <p><%= project.description %></p>
+      </div>
+    </div>
+  </div>
+</div>
