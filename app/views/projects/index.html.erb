@@ -1,39 +1,11 @@
 
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Projects Page</title>
-  </head>
-  <body>
-    <h1 class="text-center">Projects</h1>
-    <table id='project-table' class="table table-bordered row">
-      <thead>
-        <tr>
-          <th class="col-md-3">Team</th>
-          <th class="col-md-2">Title</th>
-          <th class="col-md-5 text-nowrap">Description</th>
-          <th class="col-md-1">Deadline</th>
-          <th class="col-md-1">Updates</th>
-        </tr>
-      </thead>
-      <tbody  class="table-list">
-        <% @projects.each do |project| %>
-          <%= render :partial => 'project_row', locals: {project: project} %>
-        <% end %>
-      </tbody>
-    </table>
-    <%= link_to 'New Project', new_project_path, class: "btn btn-default" %>
-    <!-- Button trigger modal -->
-    <%= link_to 'New Project', new_project_path, class: "btn btn-primary", remote: true %>
 
-<!--     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-      New Project
-    </button> -->
+<h1 class="project-title 1">Projects</h1>
 
-    <!-- Modal -->
-    <div id='modal-div'>
-    </div>
+<% @projects.each do |project| %>
+  <%= render :partial => 'project_row', locals: {project: project} %>
+<%end %>
 
-    
-  </body>
-</html>
+<div id='modal-div'>
+</div>
+

@@ -1,5 +1,7 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :edit, :update, :destroy]
+  before_action :set_sidebar_projects
+
   def index
     @projects = Project.all
   end
@@ -28,7 +30,10 @@ class ProjectsController < ApplicationController
 
   def update
     if @project.update_attributes(project_params)
-      redirect_to @project
+      respond_to do |format|
+        format.html {redirect_to @project}
+        format.js
+      end
     else
       render :edit
     end
