@@ -49,13 +49,18 @@ $navbar-height: 100px;
   }
 }
 
-.navbar-inverse 
+.navbar-inverse
 .navbar-nav > li > a {
   color: #FAEAD0;
   &:hover {
     color: #2B382F;
   }
 }
+
+.side {
+  margin-left: -25px;
+}
+
 
 .logo {
   padding-top: 15px;
@@ -80,11 +85,20 @@ body {
 
 .sidebar-list {
   list-style: none;
+  padding-left: 2px;
   li {
     font-size: 1.5em;
     color: #7B8D53;
-    &:hover {
-      color: #FAEAD0;
+    font-weight: bold;
+    margin: 10px;
+    text-align: center;
+    background-color: #7B8D53;
+    border-radius: 3px;
+    a {
+      color: #2B382F;
+      &:hover {
+        color: #FAEAD0;
+      }
     }
   }
 }
@@ -164,6 +178,3 @@ body {
 .modal-content{
   background-color: #313131;
 }
-
-
-
