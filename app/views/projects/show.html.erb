@@ -1,20 +1,51 @@
-<div class="row container">
-  <div class="col-md-6 col-md-6">
-    <h3 class="project-title"><%= @project.title %></h3>
-      <div class="thumbnail show">
-        <img src="https://fbcdn-sphotos-d-a.akamaihd.net/hphotos-ak-xpa1/t31.0-8/1617411_10152327850315047_7165561517057286879_o.jpg" alt="holder.js/300x300">
-        <div class="caption"><span id="team-name">By Team: <%= @project.team %></span>
-          <p><%= @project.description %></p>
-        </div>
-        <div class="btn-row">
-          <%= link_to 'Back to Projects', projects_path, class: "btn btn-primary" %>
-          <%= link_to 'Edit', edit_project_path(@project), class: "btn btn-primary", remote: true %>
-          <%= link_to 'Delete', @project, method: :delete, data: {confirm: "Are You Sure You Want To Delete This Project"}, class: "btn btn-danger" %>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+  <h1>Project</h1>
+  <table class="table table-bordered row text-center">
+    <thead>
+      <tr>
+        <th class="col-md-2.4 text-center">Team</th>
+        <th class="col-md-2 text-center">Title</th>
+        <th class="col-md-4 text-center">Description</th>
+        <th class="col-md-1 text-center">Deadline</th>
+        <th class="col-md-2.6 text-center"></th>
+      </tr>
+    </thead>
+      <tr class="table-list">
+        <td class="col-md-2.4"><%= @project.team %></td>
+        <td class="col-md-2"><%= @project.title %></td>
+        <td class="col-md-4"><%= @project.description %></td>
+        <td class="col-md-1"><%= @project.deadline %></td>
+        <td class="col-md-2.6 btn-group.btn-group-justified btn-group-sm" role="group">
+          <%= link_to 'Back', projects_path, class: "btn btn-default" %>
+          <%= link_to 'Edit', edit_project_path, class: "btn btn-default" %>
+          <%= link_to 'Delete', project_path(@project.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default" %>
+        </td>
+      </tr>
+  </table>
+  <h2>Tasks</h2>
+    <table class="table table-bordered row text-center tasks_table">
+        <thead>
+            <tr>
+                <th class="col-md-3 text-center">Title</th>
+                <th class="col-md-5 text-center">Description</th>
+                <th class="col-md-1.5 text-center">Deadline</th>
+                <th class="col-md-1 text-center">Completed</th>
+                <th class="col-md-1.5 text-center"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @project.tasks.each do |task| %>
+              <tr class="table-list">
+                  <td class="col-md-3 task-title"><%= task.title %></td>
+                  <td class="col-md-5"><%= task.description %></td>
+                  <td class="col-md-1.5"><%= task.deadline %></td>
+                  <td class="col-md-1"><%= task.is_completed %></td>
+                  <td class="col-md-1.5 btn-group.btn-group-justified btn-group-sm" role="group">
+                    <%= link_to 'Edit', edit_project_task_path(@project, task), class: "btn btn-default" %>
+                    <%= link_to 'Delete', project_task_path(@project, task), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default" %>
+                  </td>
 
-<div id='modal-div'>
-</div>
+              </tr>
+          <% end %>
+        </tbody>
+    </table>
+    <%= link_to 'New Task', new_project_task_path(@project), class: "btn btn-default" %>
