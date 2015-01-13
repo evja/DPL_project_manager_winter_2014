@@ -3,7 +3,6 @@ Rails.application.routes.draw do
 
   get 'task/edit'
 
-
   root 'static_pages#home'
 
   get 'about' => 'static_pages#about'
@@ -15,6 +14,7 @@ Rails.application.routes.draw do
 
   resources :projects do
     resources :tasks, except: [:show, :index]
+    put 'task/:id', to: 'tasks#toggle', as: :toggle
   end
 
 
