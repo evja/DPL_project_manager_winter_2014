@@ -6,6 +6,8 @@ $(function(){ // Document Ready
 
   $('#easter-icon').click(function(){
     $('#hidden-easter-link').click();
+    var one = $('#easter-icon').innerHTML
+      console.log(one)
   });
 
   $('#jquery-ajax-button').click(function(){
@@ -19,9 +21,8 @@ $(function(){ // Document Ready
     //     console.log(data);
     //   }
     // });
-
     $.post(
-      '/easter_egg', 
+      '/click_me',
       {name: 'carlos', email: 'carlos@devpointlabs.com'},
       function(data, textStatus){
         console.log('The text status is:' + textStatus);
