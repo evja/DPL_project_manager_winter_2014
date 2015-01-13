@@ -13,8 +13,15 @@ Rails.application.routes.draw do
   get 'click_me' => 'static_pages#click_me'
 
   resources :projects do
+<<<<<<< HEAD
     resources :tasks, except: [:show, :index]
     put 'task/:id', to: 'tasks#toggle', as: :toggle
+=======
+    resources :tasks, except: [:show, :index] do
+      patch 'complete_task' => 'tasks#mark_completed'
+      patch 'uncomplete_task' => 'tasks#mark_not_completed'
+    end
+>>>>>>> 1e6aa68c4b14d961e5afb5dfa863f1eea85c2429
   end
 
 

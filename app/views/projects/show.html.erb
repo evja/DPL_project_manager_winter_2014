@@ -34,6 +34,7 @@
         </thead>
         <tbody>
             <% @project.tasks.each do |task| %>
+<<<<<<< HEAD
               <tr class="table-list">
                   <td class="col-md-2 task-title"><%= task.title %></td>
                   <td class="col-md-4.5"><%= task.description %></td>
@@ -43,6 +44,23 @@
                     <%= link_to 'Status', project_toggle_path(@project, task), remote: true, method: :put, class: "btn btn-primary btn-sm tog" %>
                     <%= link_to 'Edit', edit_project_task_path(@project, task), class: "btn btn-default btn-sm" %>
                     <%= link_to 'Delete', project_task_path(@project, task), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm" %>
+=======
+              <tr class="table-list" data-id='<%= task.id %>'>
+                  <td class="col-md-3 task-title"><%= task.title %></td>
+                  <td class="col-md-5"><%= task.description %></td>
+                  <td class="col-md-1.5"><%= task.deadline %></td>
+                  <td class="col-md-1 task-completed"><%= task.is_completed %></td>
+                  <td class="col-md-1.5 btn-group.btn-group-justified btn-group-sm" role="group">
+                    <div class='task_complete_button_div <%= "hidden" unless task.is_completed %>'>
+                      <%= link_to 'UNDO Completion!', project_task_uncomplete_task_path(@project, task), remote: true, method: 'patch', class: "btn btn-warning" %>
+                    </div>
+                    <div class='task_complete_button_div <%= "hidden" if task.is_completed? %>'>
+                      <%= link_to 'Completed!', project_task_complete_task_path(@project, task), remote: true, method: 'patch', class: "btn btn-default" %>
+                    </div>
+
+                    <%= link_to 'Edit', edit_project_task_path(@project, task), class: "btn btn-default" %>
+                    <%= link_to 'Delete', project_task_path(@project, task), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default" %>
+>>>>>>> 1e6aa68c4b14d961e5afb5dfa863f1eea85c2429
                   </td>
 
               </tr>
