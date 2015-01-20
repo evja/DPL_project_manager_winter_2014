@@ -38,7 +38,7 @@ gem 'httparty'
 # Awesome fonts yo!
 gem 'font-awesome-sass'
 
-# User authentication 
+# User authentication
 gem 'devise'
 
 group :development, :test do
@@ -50,6 +50,7 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'capybara'
   gem 'selenium-webdriver'
+  gem 'faker'
 end
 
 gem 'simplecov', :require => false, :group => :test
