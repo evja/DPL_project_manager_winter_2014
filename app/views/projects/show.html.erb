@@ -2,22 +2,24 @@
 <h1>Project</h1>
 <div id='table_div'>
 
-  <table class="table table-bordered row text-center">
+  <table class="table table-bordered row text-center" id="project-table">
     <thead>
       <tr>
-        <th class="col-md-2.4 text-center">Team</th>
         <th class="col-md-2 text-center">Title</th>
-        <th class="col-md-4 text-center">Description</th>
-        <th class="col-md-1 text-center">Deadline</th>
-        <th class="col-md-2.6 text-center"></th>
+        <th class="col-md-2 text-center">Owner</th>
+        <th class="col-md-2 text-center">Team</th>
+        <th class="col-md-2 text-center">Description</th>
+        <th class="col-md-2 text-center">Deadline</th>
+        <th class="col-md-2 text-center"></th>
       </tr>
     </thead>
       <tr class="table-list">
-        <td class="col-md-2.4"><%= @project.team %></td>
         <td class="col-md-2"><%= @project.title %></td>
-        <td class="col-md-4"><%= @project.description %></td>
-        <td class="col-md-1"><%= @project.deadline %></td>
-        <td class="col-md-2.6 btn-group.btn-group-justified btn-group-sm" role="group">
+        <td class="col-md-2"><%= @project.owner %></td>
+        <td class="col-md-2"><%= @project.team %></td>
+        <td class="col-md-2"><%= @project.description %></td>
+        <td class="col-md-2"><%= @project.deadline %></td>
+        <td class="col-md-2 btn-group.btn-group-justified btn-group-sm" role="group">
           <%= link_to 'Back', projects_path, class: "btn btn-default" %>
           <%= link_to 'Edit', edit_project_path, class: "btn btn-default" %>
           <%= link_to 'Delete', project_path(@project.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default" %>
@@ -41,7 +43,7 @@
 
               <tr class="table-list" data-id='<%= task.id %>'>
                   <td class="col-md-3 task-title"><%= task.title %></td>
-                  <td class="col-md-1 task-user"><%= task.user.name %></td>
+                  <td class="col-md-1 task-user"><%= task.project.user.name %></td>
                   <td class="col-md-5"><%= task.description %></td>
                   <td class="col-md-1.5"><%= task.deadline %></td>
                   <td class="col-md-1 task-completed"><%= task.is_completed %></td>
