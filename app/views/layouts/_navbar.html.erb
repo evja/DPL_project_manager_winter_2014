@@ -6,21 +6,12 @@
       <ul class="nav navbar-nav pull-right">
         <li><%= link_to "Home", root_path, class: "nav-text" %></li>
         <li>
-           <% if user_signed_in? %> 
+           <% if user_signed_in? %>
               <li><%= link_to "Projects", projects_path, class: "nav-text" %></li>
               <li><%= link_to "About", about_path, class: "nav-text" %></li>
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle nav-text" data-toggle="dropdown" role="button" aria-expanded="false">The Team <span class="caret"></span></a>
-                <ul class="dropdown-menu" role="menu">
-                  <% User.all.each do |user| %>
-                    <li>
-                      <%= link_to user_path(user) do %>
-                        <%= icon('github') if user.is_github_authorized? %> <%= user.name %>
-                      <% end %>
-                    </li>
-                  <% end %>
-                </ul>
-              </li>
+
+              <%= render 'users/user_dropdown' %>
+
               <li><%= link_to 'Edit profile', edit_user_registration_path, class: 'nav-text' %></li>
               <li><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'nav-text'  %></li>
             <% else %>
@@ -28,7 +19,7 @@
               <li><%= link_to "Login", new_user_session_path, class: 'nav-text'  %></li>
             <% end %>
         </li>
-        
+
       </ul>
     </nav>
     <% if user_signed_in? %>
