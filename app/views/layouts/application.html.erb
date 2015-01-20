@@ -9,6 +9,7 @@
 <body>
 
   <%= render 'layouts/navbar' %>
+  <div class="col-md-2 side-bar"><%= render 'layouts/sidebar' %></div>
   <div class='main-body container'>
     <div class="row">
       <% if notice %>
@@ -17,7 +18,8 @@
       <% if alert %>
         <p class="alert alert-danger"><%= alert %></p>
       <% end %>
-      <div class="col-md-12"><%= yield %></div>
+
+      <div class="col-md-10"><%= yield %></div>
     </div>
   </div>
 <div class="footer">
