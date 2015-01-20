@@ -16,3 +16,67 @@
 
 }
 
+#project-table th {
+  color: white;
+}
+
+.table-list {
+  color: white;
+}
+
+.tasks_table {
+  color: white;
+}
+
+.table-list {
+  list-style: none;
+  tr {
+    font-size: 1.2em;
+    color: #FAEAD0;
+  }
+}
+
+.table {
+  background-color: #080202;
+}
+
+.project-title {
+  text-align: center;
+  margin-bottom: 10px;
+
+  1 {
+    padding-top: -3px;
+  }
+}
+
+.thumbnail {
+  height: 350px;
+  width: 285px;
+  background-color: #9CF;
+}
+.thumbnail.show {
+    height: 700px;
+    width: 570px;
+    margin: 10px;
+    padding: 10px;
+    display: table;
+    btn-row {
+      display: table-row;
+      vertical-align: bottom;
+    }
+  }
+
+.pull-left {
+  background-color: blue;
+  width: 143px;
+}
+
+#team-name {
+  padding: 5px;
+  border: solid black 1px;
+  border-radius: 4px;
+}
+
+.btn-row {
+  vertical-align: bottom;
+}
