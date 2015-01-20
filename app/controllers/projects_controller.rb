@@ -1,5 +1,8 @@
 class ProjectsController < ApplicationController
+  before_action :set_sidebar_projects
   before_action :set_project, only: [:show, :edit, :update, :destroy]
+  before_action :set_user
+
   def index
     @projects = Project.all
   end
@@ -13,7 +16,7 @@ class ProjectsController < ApplicationController
 
 
   def create
-    @project = Project.new(project_params)
+    @project = @user.projects.build(project_params)
     if @project.save
       respond_to do |format|
         format.html { redirect_to @project }
@@ -46,7 +49,11 @@ class ProjectsController < ApplicationController
       @project = Project.find(params[:id])
     end
 
+    def set_user
+      @user = current_user
+    end
+
     def project_params
-      params.require(:project).permit(:team, :title, :description, :deadline)
+      params.require(:project).permit(:team, :title, :description, :deadline, :user_id, :owner)
     end
 end

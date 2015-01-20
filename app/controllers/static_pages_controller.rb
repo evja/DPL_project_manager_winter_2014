@@ -1,4 +1,5 @@
 class StaticPagesController < ApplicationController
+  before_action :set_sidebar_projects
   skip_before_filter :authenticate_user!, only: ['home']
 
   def home
